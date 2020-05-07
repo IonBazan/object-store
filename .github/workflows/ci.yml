@@ -41,10 +41,3 @@ jobs:
         run: bin/phpunit
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
-      - name: Deploy
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: |
-          heroku container:login
-          heroku container:push -a object-store web
-          heroku container:release -a object-store web

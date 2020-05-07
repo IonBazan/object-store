@@ -26,7 +26,7 @@ class GetCommand extends AbstractObjectStoreCommand
     {
         $key = $input->getArgument('key');
         $timestamp = $input->getOption('timestamp');
-        $time = \DateTime::createFromFormat('U', $timestamp) ?: new \DateTime();
+        $time = \DateTime::createFromFormat('U', (string) $timestamp) ?: new \DateTime();
 
         $entry = $this->objectStore->get($key, $time);
 
