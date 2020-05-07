@@ -1,0 +1,11 @@
+setup:
+  addons:
+    - plan: jawsdb-maria
+      as: DATABASE
+build:
+  docker:
+    web: Dockerfile
+release:
+  image: web
+  command:
+    - "php bin/console doc:mig:mig -n"

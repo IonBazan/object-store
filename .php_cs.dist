@@ -1,0 +1,18 @@
+<?php
+
+use PhpCsFixer\Config;
+use PhpCsFixer\Finder;
+
+$finder = Finder::create()->in(['src', 'tests']);
+
+return Config::create()
+    ->setRiskyAllowed(true)
+    ->setRules([
+        '@Symfony' => true,
+        '@Symfony:risky' => true,
+        '@PHP73Migration' => true,
+        '@PHP71Migration:risky' => true,
+        '@PHP70Migration:risky' => true,
+    ])
+    ->setFinder($finder)
+;

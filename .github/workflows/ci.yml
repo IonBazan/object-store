@@ -1,0 +1,50 @@
+name: Tests
+on: [push, pull_request]
+env:
+  APP_ENV: test
+  DATABASE_URL: 'mysql://root@127.0.0.1/object_store?serverVersion=8.0'
+jobs:
+  build:
+    name: API CI
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mariadb:10
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_DATABASE: object_store
+        ports:
+          - 3306:3306
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup PHP, with composer and extensions
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          extensions: mbstring, xml, ctype, iconv, curl, pcov, pdo_mysql
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - name: Cache composer dependencies
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+      - name: Install Composer dependencies
+        run: composer install -n
+      - name: Prepare database
+        run: |
+          bin/console doctrine:schema:create
+      - name: Run Tests
+        run: bin/phpunit
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+      - name: Deploy
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: |
+          heroku container:login
+          heroku container:push -a object-store web
+          heroku container:release -a object-store web

@@ -1,0 +1,9 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: Object Store API
+            description: This API allows you to store your objects with history tracking!
+            version: 1.0.0
+    areas:
+        path_patterns:
+            - ^/object
