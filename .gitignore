@@ -6,6 +6,8 @@
 /public/bundles/
 /var/
 /vendor/
+/infection.json
+/infection.log
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###

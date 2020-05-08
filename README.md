@@ -105,6 +105,15 @@ Running tests is as simple as configuring `.env.test.local` variables to match y
 bin/phpunit
 ```
 
+## Mutation tests
+
+To make sure your tests actually have necessary assertions, CI is running mutation tests using [Infection](https://infection.github.io/).
+
+Make sure you have Xdebug or PCOV extension enabled as it is required to run:
+```bash
+vendor/bin/infection
+```
+
 # Deployment
 
 This application is being automatically tested using GitHub Actions and deployed on Heroku.

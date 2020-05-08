@@ -19,7 +19,7 @@ class StoreCommand extends AbstractObjectStoreCommand
         $this
             ->setDescription('Stores a value in the ObjectStore')
             ->addArgument('key', InputArgument::REQUIRED, 'Object key')
-            ->addArgument('value', InputArgument::REQUIRED, 'Value to store')
+            ->addArgument('value', InputArgument::REQUIRED, 'JSON-encoded value to store')
         ;
     }
 
