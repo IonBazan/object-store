@@ -10,9 +10,11 @@ return Config::create()
     ->setRules([
         '@Symfony' => true,
         '@Symfony:risky' => true,
+        '@DoctrineAnnotation' => true,
         '@PHP73Migration' => true,
         '@PHP71Migration:risky' => true,
         '@PHP70Migration:risky' => true,
+        'phpdoc_order' => true,
     ])
     ->setFinder($finder)
 ;

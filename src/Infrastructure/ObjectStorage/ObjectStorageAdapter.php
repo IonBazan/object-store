@@ -14,9 +14,9 @@ interface ObjectStorageAdapter
     public function store(string $key, $data, \DateTime $timestamp): void;
 
     /**
-     * @return mixed
-     *
      * @throws ObjectNotFoundException
+     *
+     * @return mixed
      */
     public function get(string $key, \DateTime $timestamp);
 

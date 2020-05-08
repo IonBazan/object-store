@@ -40,7 +40,11 @@ class ApiController extends AbstractController
      *         example={"key": "value"}
      *     )
      * )
-     * @SWG\Response(response="201", description="On success")
+     * @SWG\Response(
+     *     response="201",
+     *     description="On success",
+     *     headers={@SWG\Header(header="X-Timestamp", type="number", description="Current server timestamp")}
+     * )
      * @SWG\Response(response="400", description="When provided object is not valid")
      *
      * @Route("", name="api_upsert_object", methods={"POST"}, defaults={"_format": "json"})
@@ -71,7 +75,8 @@ class ApiController extends AbstractController
      * @SWG\Response(
      *     response="200",
      *     description="Value for the key at given time (or now)",
-     *     @SWG\Schema(type="object", example="test-value")
+     *     @SWG\Schema(type="object", example="test-value"),
+     *     headers={@SWG\Header(header="X-Timestamp", type="number", description="Current server timestamp")}
      * )
      * @SWG\Response(response="400", description="When provided timestamp is invalid")
      * @SWG\Response(response="404", description="When key is not found (for provided time)")
