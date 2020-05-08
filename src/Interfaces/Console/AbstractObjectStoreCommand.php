@@ -24,14 +24,8 @@ abstract class AbstractObjectStoreCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
-
-        try {
-            $result = $this->executeInner($io, $input);
-        } catch (\Throwable $e) {
-            throw $e;
-        } finally {
-            $io->comment('Current timestamp: '.time());
-        }
+        $result = $this->executeInner($io, $input);
+        $io->comment('Current timestamp: '.time());
 
         return $result;
     }

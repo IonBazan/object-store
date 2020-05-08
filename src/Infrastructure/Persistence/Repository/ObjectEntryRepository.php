@@ -21,6 +21,14 @@ class ObjectEntryRepository extends ServiceEntityRepository
         $this->_em->flush();
     }
 
+    public function deleteAll(): void
+    {
+        $this->createQueryBuilder('e')
+            ->delete()
+            ->getQuery()
+            ->execute();
+    }
+
     public function findByKeyAtTime(string $key, \DateTime $time): ?ObjectEntry
     {
         return $this->createQueryBuilder('e')

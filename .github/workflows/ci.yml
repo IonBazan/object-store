@@ -7,17 +7,15 @@ jobs:
   build:
     name: API CI
     runs-on: ubuntu-latest
-    services:
-      mysql:
-        image: mariadb:10
-        env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
-          MYSQL_DATABASE: object_store
-        ports:
-          - 3306:3306
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Setup MariaDB
+        uses: getong/mariadb-action@v1.1
+        with:
+          mysql database: object_store
+      - name: Setup Redis
+        uses: shogo82148/actions-setup-redis@v1
       - name: Setup PHP, with composer and extensions
         uses: shivammathur/setup-php@v2
         with:

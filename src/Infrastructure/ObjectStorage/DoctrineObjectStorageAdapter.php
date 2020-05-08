@@ -32,6 +32,9 @@ class DoctrineObjectStorageAdapter implements ObjectStorageAdapter
         $this->objectEntryRepository->save($objectEntry);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function get(string $key, DateTime $timestamp)
     {
         $entry = $this->objectEntryRepository->findByKeyAtTime($key, $this->toUTC($timestamp));
@@ -41,6 +44,14 @@ class DoctrineObjectStorageAdapter implements ObjectStorageAdapter
         }
 
         return $entry->getValue();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function clear(): void
+    {
+        $this->objectEntryRepository->deleteAll();
     }
 
     private function toUTC(DateTime $dateTime): DateTime

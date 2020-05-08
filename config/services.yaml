@@ -12,3 +12,14 @@ services:
     App\Interfaces\Http\:
         resource: '../src/Interfaces/Http'
         tags: ['controller.service_arguments']
+
+    App\Infrastructure\ObjectStorage\RedisObjectStorageAdapter:
+        bind:
+            $redis: '@snc_redis.object_store'
+        public: true
+
+    App\Infrastructure\ObjectStorage\DoctrineObjectStorageAdapter:
+        public: true
+
+    App\Infrastructure\ObjectStorage\ObjectStorageAdapter:
+        alias: App\Infrastructure\ObjectStorage\DoctrineObjectStorageAdapter

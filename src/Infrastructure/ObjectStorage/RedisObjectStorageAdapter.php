@@ -5,18 +5,26 @@ declare(strict_types=1);
 namespace App\Infrastructure\ObjectStorage;
 
 use App\Infrastructure\Exception\ObjectNotFoundException;
-use App\Infrastructure\Persistence\Entity\ObjectEntry as EntryEntity;
-use App\Infrastructure\Persistence\Repository\ObjectEntryRepository;
 use DateTime;
-use DateTimeZone;
+use Redis;
 
-class DoctrineObjectStorageAdapter implements ObjectStorageAdapter
+/**
+ * This adapter stores values in Redis using following approach:
+ *  - Stores following data in sorted set:
+ *      key:   Key
+ *      value: SHA512(Key):Timestamp
+ *      score: Timestamp
+ *  - Then stores the actual data as a key-value. The key is taken from value of the sorted set.
+ * This is because sorted set requires uniqueness of the values which would break the history if someone changes values to:
+ *  value1 -> value2 -> value1.
+ */
+class RedisObjectStorageAdapter implements ObjectStorageAdapter
 {
-    protected ObjectEntryRepository $objectEntryRepository;
+    protected Redis $redis;
 
-    public function __construct(ObjectEntryRepository $objectEntryRepository)
+    public function __construct(Redis $redis)
     {
-        $this->objectEntryRepository = $objectEntryRepository;
+        $this->redis = $redis;
     }
 
     /**
@@ -24,27 +32,31 @@ class DoctrineObjectStorageAdapter implements ObjectStorageAdapter
      */
     public function store(string $key, $data, DateTime $timestamp): void
     {
-        $objectEntry = new EntryEntity();
-        $objectEntry->setKey($key);
-        $objectEntry->setValue($data);
-        $objectEntry->setCreatedAt($this->toUTC($timestamp));
-
-        $this->objectEntryRepository->save($objectEntry);
+        $storageKey = sprintf('%s:%s', hash('sha512', $key), $timestamp->getTimestamp());
+        $this->redis->zAdd($key, ['CH'], $timestamp->getTimestamp(), $storageKey);
+        $this->redis->set($storageKey, json_encode($data));
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function get(string $key, DateTime $timestamp)
     {
-        $entry = $this->objectEntryRepository->findByKeyAtTime($key, $this->toUTC($timestamp));
+        $score = (string) $timestamp->getTimestamp();
+        $result = $this->redis->zRevRangeByScore($key, $score, '-inf', ['limit' => [0, 1]]);
 
-        if (!$entry) {
+        if (!\count($result)) {
             throw new ObjectNotFoundException($key, $timestamp);
         }
 
-        return $entry->getValue();
+        return json_decode($this->redis->get($result[0]));
     }
 
-    private function toUTC(DateTime $dateTime): DateTime
+    /**
+     * {@inheritdoc}
+     */
+    public function clear(): void
     {
-        return (clone $dateTime)->setTimezone(new DateTimeZone('UTC'));
+        $this->redis->flushDB();
     }
 }

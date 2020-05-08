@@ -1,0 +1,5 @@
+snc_redis:
+    clients:
+        object_store:
+            type: phpredis
+            dsn: "%env(REDIS_URL)%"

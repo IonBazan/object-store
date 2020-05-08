@@ -2,9 +2,14 @@ FROM php:7.4-apache
 
 ENV APP_ENV=prod
 
-RUN apt-get update -qq && apt-get install -y -qq git unzip
-
-RUN docker-php-ext-install pdo_mysql
+RUN apt-get update \
+    && apt-get install -y -qq \
+        git \
+        unzip \
+    && docker-php-ext-install \
+        pdo_mysql \
+    && yes '' | pecl install -f redis \
+    && docker-php-ext-enable redis
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
@@ -19,8 +24,7 @@ RUN composer i -n --no-dev --no-scripts
 
 COPY . ./
 
-RUN composer i -n --no-dev -o
-
-RUN chown -R www-data:www-data var
+RUN composer i -n --no-dev -o \
+    && chown -R www-data:www-data var
 
 ENV PORT=80

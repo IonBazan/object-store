@@ -19,4 +19,9 @@ interface ObjectStorageAdapter
      * @throws ObjectNotFoundException
      */
     public function get(string $key, \DateTime $timestamp);
+
+    /**
+     * Clears the data in the storage.
+     */
+    public function clear(): void;
 }

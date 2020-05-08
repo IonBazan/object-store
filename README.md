@@ -10,15 +10,21 @@ Prerequisites:
  - PHP 7.4+ with `pdo_mysql` extension
  - Composer
  - MariaDB or MySQL server
+ - Redis server
 
 ```shell
 composer install # Install dependencies
 bin/console doctrine:migrations:migrate -n
 ```
 
-Note that you may need to update your DB credentials. Simply put `DATABASE_URL=mysql://admin:admin@127.0.0.1/object_store` in `.env.local` and put your credentials there.
+Note that you may need to update your DB and Redis credentials. 
+Simply put `DATABASE_URL=mysql://admin:admin@127.0.0.1/object_store` in `.env.local` and put your credentials there.
 
 # Usage
+
+Application offers both Web and CLI interfaces.
+
+## Web
 The easiest way to run the application is by installing [Symfony CLI](https://symfony.com/doc/current/setup/symfony_server.html) and run:
 
 ```bash
@@ -29,7 +35,67 @@ Your app should be available at http://localhost:8000.
 
 Use provided Swagger UI documentation to browse the API.
 
+## CLI
+
+Application offers two CLI commands:
+```bash
+bin/console app:object-store:store <key> <value> # Stores the value in object store
+bin/console app:object-store:get <key> [-t TIMESTAMP] # Gets the value from object store at given time
+```
+
+Please note that `value` must me JSON-encoded and escaped for your terminal.
+For example, if you want to store a string value: `test-value` at key `test-key`, you have to use following command:
+```bash
+bin/console app:object-store:store test-key \"test-value\"
+```
+
+This is to enable you to store complex data as a value.
+
+# Storage adapters
+
+Application allows you to easily swap between different implementations of storage drivers.
+You can easily create one by implementing `\App\Infrastructure\ObjectStorage\ObjectStorageAdapter` interface.
+
+Currently implemented drivers are:
+ - `DoctrineObjectStorageAdapter` - stores data in Database
+ - `RedisObjectStorageAdapter` - stores data in Redis
+ 
+## `DoctrineObjectStorageAdapter`
+ 
+`DoctrineObjectStorageAdapter` uses [Doctrine ORM](https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/index.html) to store data as `ObjectEntry` entities.
+
+The `ObjectEntry` entity is using `VARCHAR(255)` column type with `utf8mb4` character set for full Unicode support so you can use keys like `🧅` or `😃`. 
+`utf8mb4_bin` collation ensures binary comparison of keys so `'KEY' !== 'key'` and `'key' !== 'kęy'`.
+Timestamp is stored as `TIMESTAMP`
+
+### Limitations
+
+Because of MySQL index length limitations, an error may occur when storing bigger keys. 
+
+## `RedisObjectStorageAdapter`
+
+`RedisObjectStorageAdapter` uses Redis as storage using sorted sets.
+Internally, the sorted set keeps only the change reference as:
+
+| KEY | VALUE                 | SCORE     |
+|-----|-----------------------|-----------|
+| key | SHA512(key):timestamp | timestamp |
+
+Then, the actual value is stored in a hashmap as:
+
+| KEY                   | VALUE |
+|-----------------------|-------|
+| SHA512(key):timestamp | value |
+
+Because sorted sets require values to be unique, this approach allows `value1 -> value2 -> value1` transitions to be properly stored.
+
+### Limitations
+
+Since the implementation uses SHA512 as part of the key, some conflicts may occur.
+
 # Tests
+
+All components are covered by either unit or feature tests.
 
 Running tests is as simple as configuring `.env.test.local` variables to match your DB credentials and running:
 ```bash
@@ -39,5 +105,3 @@ bin/phpunit
 # Deployment
 
 This application is being automatically tested using GitHub Actions and deployed on Heroku.
-
-
