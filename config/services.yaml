@@ -23,3 +23,4 @@ services:
 
     App\Infrastructure\ObjectStorage\ObjectStorageAdapter:
         alias: App\Infrastructure\ObjectStorage\DoctrineObjectStorageAdapter
+#        alias: App\Infrastructure\ObjectStorage\RedisObjectStorageAdapter # Use this to switch to Redis driver
