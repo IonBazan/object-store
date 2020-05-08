@@ -40,6 +40,7 @@ class ApiControllerTest extends TestCase
 
         $this->assertInstanceOf(JsonResponse::class, $response);
         $this->assertSame(JsonResponse::HTTP_CREATED, $response->getStatusCode());
+        $this->assertTrue($response->headers->has('X-Timestamp'));
     }
 
     /**
@@ -67,6 +68,7 @@ class ApiControllerTest extends TestCase
         $this->assertInstanceOf(JsonResponse::class, $response);
         $this->assertSame(JsonResponse::HTTP_OK, $response->getStatusCode());
         $this->assertSame(json_encode($value), $response->getContent());
+        $this->assertTrue($response->headers->has('X-Timestamp'));
     }
 
     public function testItReturnsValueAtGivenTimestamp(): void
@@ -89,6 +91,7 @@ class ApiControllerTest extends TestCase
         $this->assertInstanceOf(JsonResponse::class, $response);
         $this->assertSame(JsonResponse::HTTP_OK, $response->getStatusCode());
         $this->assertSame(json_encode($value), $response->getContent());
+        $this->assertTrue($response->headers->has('X-Timestamp'));
     }
 
     public function testItThrowsErrorWhenObjectIsNotFound(): void

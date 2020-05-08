@@ -32,15 +32,20 @@ class ObjectStorageCommandTest extends KernelTestCase
         $this->assertSame(0, $storeTester->execute(['key' => $key, 'value' => json_encode($value)]));
         $storeOutput = $storeTester->getDisplay();
         $this->assertStringContainsString('test-key', $storeOutput);
+        $this->assertStringContainsString('Key', $storeOutput);
         $this->assertStringContainsString('Value stored successfully', $storeOutput);
         $this->assertStringContainsString('Timestamp', $storeOutput);
+        $this->assertStringContainsString('Current timestamp', $storeOutput);
 
         $getTester = new CommandTester($this->getCommand);
         $this->assertSame(0, $getTester->execute(['key' => $key]));
         $getOutput = $getTester->getDisplay();
+        $this->assertStringContainsString('Object store', $getOutput);
+        $this->assertStringContainsString('Key', $getOutput);
         $this->assertStringContainsString('test-key', $getOutput);
         $this->assertStringContainsString(json_encode($value), $getOutput);
         $this->assertStringContainsString('Timestamp', $getOutput);
+        $this->assertStringContainsString('Current timestamp', $getOutput);
 
         $this->assertSame(1, $getTester->execute(['key' => $key, '-t' => 0]));
         $getOutput = $getTester->getDisplay();

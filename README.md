@@ -1,6 +1,7 @@
 # Object Store API
 ![Tests](https://github.com/IonBazan/object-store/workflows/Tests/badge.svg)
 [![codecov](https://codecov.io/gh/IonBazan/object-store/branch/master/graph/badge.svg)](https://codecov.io/gh/IonBazan/object-store)
+[![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2FIonBazan%2Fobject-store%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/IonBazan/object-store/master)
 
 This application provides a simple API for storing your data in your key-value store with history.
 
@@ -60,19 +61,21 @@ Currently implemented drivers are:
  - `DoctrineObjectStorageAdapter` - stores data in Database
  - `RedisObjectStorageAdapter` - stores data in Redis
  
-## `DoctrineObjectStorageAdapter`
+## Doctrine
  
 `DoctrineObjectStorageAdapter` uses [Doctrine ORM](https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/index.html) to store data as `ObjectEntry` entities.
 
-The `ObjectEntry` entity is using `VARCHAR(255)` column type with `utf8mb4` character set for full Unicode support so you can use keys like `🧅` or `😃`. 
-`utf8mb4_bin` collation ensures binary comparison of keys so `'KEY' !== 'key'` and `'key' !== 'kęy'`.
-Timestamp is stored as `TIMESTAMP`
+The `ObjectEntry` entity is using `VARCHAR(255)` column type.
+
+ - `utf8mb4` character set for full Unicode support so you can use keys like 🧅 or 😃. 
+ - `utf8mb4_bin` collation ensures binary comparison of keys so `KEY` !== `key` and `key` !== `kęy`.
+ - Timestamp is stored as `TIMESTAMP` in UTC
 
 ### Limitations
 
 Because of MySQL index length limitations, an error may occur when storing bigger keys. 
 
-## `RedisObjectStorageAdapter`
+## Redis
 
 `RedisObjectStorageAdapter` uses Redis as storage using sorted sets.
 Internally, the sorted set keeps only the change reference as:

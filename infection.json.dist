@@ -1,0 +1,19 @@
+{
+    "source": {
+        "directories": [
+            "src"
+        ],
+        "excludes": [
+            "Infrastructure\/Migrations",
+            "Infrastructure\/Kernel.php"
+        ]
+    },
+    "logs": {
+        "badge": {
+            "branch": "master"
+        }
+    },
+    "mutators": {
+        "@default": true
+    }
+}

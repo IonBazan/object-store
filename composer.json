@@ -4,6 +4,7 @@
     "require": {
         "php": "^7.4.2",
         "ext-ctype": "*",
+        "ext-hash": "*",
         "ext-iconv": "*",
         "ext-json": "*",
         "ext-pdo_mysql": "*",
@@ -23,6 +24,7 @@
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
+        "infection/infection": "^0.16.3",
         "symfony/profiler-pack": "^1.0",
         "symfony/test-pack": "^1.0"
     },
