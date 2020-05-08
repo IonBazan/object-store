@@ -8,7 +8,7 @@ This application provides a simple API for storing your data in your key-value s
 # Installation
 
 Prerequisites:
- - PHP 7.4+ with `pdo_mysql` extension
+ - PHP 7.4+ with `pdo_mysql` and `redis` extensions
  - Composer
  - MariaDB or MySQL server
  - Redis server

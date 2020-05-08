@@ -10,16 +10,20 @@ use App\Infrastructure\Exception\ObjectNotFoundException;
 use App\Infrastructure\ObjectStorage\ObjectStorageAdapter;
 use DateTime;
 use PHPUnit\Framework\TestCase;
+use Psr\Log\LoggerInterface;
 
 class ObjectStoreTest extends TestCase
 {
     protected ObjectStore $objectStore;
     protected ObjectStorageAdapter $adapter;
+    protected LoggerInterface $logger;
 
     protected function setUp(): void
     {
         $this->adapter = $this->createMock(ObjectStorageAdapter::class);
+        $this->logger = $this->createMock(LoggerInterface::class);
         $this->objectStore = new ObjectStore($this->adapter);
+        $this->objectStore->setLogger($this->logger);
     }
 
     public function testItPassesObjectToStorageAdapter(): void
@@ -29,6 +33,14 @@ class ObjectStoreTest extends TestCase
         $this->adapter->expects($this->once())
             ->method('store')
             ->with('test-key', ['my-value'], $date);
+        $this->logger->expects($this->once())
+            ->method('info')
+            ->with('Object stored', [
+                'key' => $object->getKey(),
+                'value' => $object->getValue(),
+                'adapter' => get_class($this->adapter),
+                'timestamp' => $date->getTimestamp(),
+            ]);
 
         $this->objectStore->store($object, $date);
     }
@@ -41,6 +53,14 @@ class ObjectStoreTest extends TestCase
             ->method('get')
             ->with('test-key', $date)
             ->willReturn(['my-value']);
+        $this->logger->expects($this->once())
+            ->method('info')
+            ->with('Object fetched', [
+                'key' => $object->getKey(),
+                'value' => $object->getValue(),
+                'adapter' => get_class($this->adapter),
+                'timestamp' => $date->getTimestamp(),
+            ]);
 
         $this->assertEquals($object, $this->objectStore->get('test-key', $date));
     }
@@ -52,6 +72,13 @@ class ObjectStoreTest extends TestCase
             ->method('get')
             ->with('test-key', $date)
             ->willThrowException(new ObjectNotFoundException('test-key', $date));
+        $this->logger->expects($this->once())
+            ->method('warning')
+            ->with('Object not found', [
+                'key' => 'test-key',
+                'adapter' => get_class($this->adapter),
+                'timestamp' => $date->getTimestamp(),
+            ]);
 
         $this->assertNull($this->objectStore->get('test-key', $date));
     }
