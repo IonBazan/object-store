@@ -1,6 +1,10 @@
 {
+    "name": "ion-bazan/object-store",
+    "description": "DDD Simple REST API based on Symfony providing key-value store",
+    "keywords": ["Symfony", "DDD", "key-value", "REST", "API", "Redis", "Doctrine", "project", "Docker"],
     "type": "project",
-    "license": "proprietary",
+    "license": "MIT",
+    "homepage": "https://github.com/IonBazan/object-store",
     "require": {
         "php": "^7.4.2",
         "ext-ctype": "*",

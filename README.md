@@ -2,6 +2,10 @@
 ![Tests](https://github.com/IonBazan/object-store/workflows/Tests/badge.svg)
 [![codecov](https://codecov.io/gh/IonBazan/object-store/branch/master/graph/badge.svg)](https://codecov.io/gh/IonBazan/object-store)
 [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2FIonBazan%2Fobject-store%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/IonBazan/object-store/master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/IonBazan/object-store/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/IonBazan/object-store/?branch=master)
+![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/ion-bazan/object-store)
+![Packagist License](https://img.shields.io/packagist/l/ion-bazan/object-store)
+![Packagist Version](https://img.shields.io/packagist/v/ion-bazan/object-store)
 
 This application provides a simple API for storing your data in your key-value store with history.
 
