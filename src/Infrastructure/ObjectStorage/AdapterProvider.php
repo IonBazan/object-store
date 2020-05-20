@@ -8,20 +8,17 @@ class AdapterProvider
 {
     /** @var ObjectStorageAdapter[] */
     private iterable $adapters;
-    private string $defaultAdapter;
 
     /**
      * @param ObjectStorageAdapter[] $adapters
      */
-    public function __construct(iterable $adapters, string $defaultAdapter)
+    public function __construct(iterable $adapters)
     {
         $this->adapters = $adapters;
-        $this->defaultAdapter = $defaultAdapter;
     }
 
-    public function __invoke(?string $name = null): ObjectStorageAdapter
+    public function __invoke(string $name): ObjectStorageAdapter
     {
-        $name ??= $this->defaultAdapter;
         $adapters = iterator_to_array($this->adapters);
 
         if (!\array_key_exists($name, $adapters)) {

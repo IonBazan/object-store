@@ -18,9 +18,8 @@ class AdapterProviderTest extends TestCase
         $adapter3 = $this->createMock(ObjectStorageAdapter::class);
         $adapters = new \ArrayIterator(['a1' => $adapter1, 'a2' => $adapter2, 'a3' => $adapter3]);
 
-        $provider = new AdapterProvider($adapters, 'a1');
+        $provider = new AdapterProvider($adapters);
 
-        $this->assertSame($adapter1, $provider());
         $this->assertSame($adapter1, $provider('a1'));
         $this->assertSame($adapter2, $provider('a2'));
         $this->assertSame($adapter3, $provider('a3'));
