@@ -59,7 +59,7 @@ This is to enable you to store complex data as a value.
 # Storage adapters
 
 Application allows you to easily swap between different implementations of storage drivers.
-You can easily create one by implementing `App\Infrastructure\ObjectStorage\ObjectStorageAdapter` interface.
+You can easily create one by implementing `App\Infrastructure\ObjectStorage\ObjectStorageAdapter` interface and tagging your service with `object_storage.adapter` tag (see example in `config/services.yaml` file).
 
 Currently implemented drivers are:
  - `DoctrineObjectStorageAdapter` - stores data in Database
@@ -67,13 +67,11 @@ Currently implemented drivers are:
  
 ## Choosing the adapter
 
-To change the adapter, simply switch `App\Infrastructure\ObjectStorage\ObjectStorageAdapter` service definition in `config/services.yaml`:
-```yaml
-services:
-# ...
-    App\Infrastructure\ObjectStorage\ObjectStorageAdapter:
-        alias: App\Infrastructure\ObjectStorage\DoctrineObjectStorageAdapter
-#        alias: App\Infrastructure\ObjectStorage\RedisObjectStorageAdapter # Use this to switch to Redis driver
+To change the adapter, simply set `STORAGE_ADAPTER` environment variable to `redis` or `doctrine`:
+
+```dotenv
+# /.env.local
+STORAGE_ADAPTER=redis
 ```
  
 ## Doctrine

@@ -1,4 +1,5 @@
 parameters:
+    env(STORAGE_ADAPTER): 'doctrine'
 
 services:
     _defaults:
@@ -16,11 +17,13 @@ services:
     App\Infrastructure\ObjectStorage\RedisObjectStorageAdapter:
         bind:
             $redis: '@snc_redis.object_store'
-        public: true
+        tags: [{ name: 'object_storage.adapter', key: 'redis' }]
 
     App\Infrastructure\ObjectStorage\DoctrineObjectStorageAdapter:
-        public: true
+        tags: [{ name: 'object_storage.adapter', key: 'doctrine' }]
+
+    App\Infrastructure\ObjectStorage\AdapterProvider:
+        arguments: [!tagged { tag: 'object_storage.adapter', index_by: key }, '%env(STORAGE_ADAPTER)%']
 
     App\Infrastructure\ObjectStorage\ObjectStorageAdapter:
-        alias: App\Infrastructure\ObjectStorage\DoctrineObjectStorageAdapter
-#        alias: App\Infrastructure\ObjectStorage\RedisObjectStorageAdapter # Use this to switch to Redis driver
+        factory: '@App\Infrastructure\ObjectStorage\AdapterProvider'

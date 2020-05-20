@@ -38,7 +38,7 @@ class ObjectStoreTest extends TestCase
             ->with('Object stored', [
                 'key' => $object->getKey(),
                 'value' => $object->getValue(),
-                'adapter' => get_class($this->adapter),
+                'adapter' => \get_class($this->adapter),
                 'timestamp' => $date->getTimestamp(),
             ]);
 
@@ -58,7 +58,7 @@ class ObjectStoreTest extends TestCase
             ->with('Object fetched', [
                 'key' => $object->getKey(),
                 'value' => $object->getValue(),
-                'adapter' => get_class($this->adapter),
+                'adapter' => \get_class($this->adapter),
                 'timestamp' => $date->getTimestamp(),
             ]);
 
@@ -76,7 +76,7 @@ class ObjectStoreTest extends TestCase
             ->method('warning')
             ->with('Object not found', [
                 'key' => 'test-key',
-                'adapter' => get_class($this->adapter),
+                'adapter' => \get_class($this->adapter),
                 'timestamp' => $date->getTimestamp(),
             ]);
 

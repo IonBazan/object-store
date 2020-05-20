@@ -28,7 +28,7 @@ class ObjectStore implements ObjectStoreInterface, LoggerAwareInterface
         $this->logger->info('Object stored', [
             'key' => $entry->getKey(),
             'value' => $entry->getValue(),
-            'adapter' => get_class($this->adapter),
+            'adapter' => \get_class($this->adapter),
             'timestamp' => $timestamp->getTimestamp(),
         ]);
     }
@@ -40,7 +40,7 @@ class ObjectStore implements ObjectStoreInterface, LoggerAwareInterface
             $this->logger->info('Object fetched', [
                 'key' => $key,
                 'value' => $value,
-                'adapter' => get_class($this->adapter),
+                'adapter' => \get_class($this->adapter),
                 'timestamp' => $timestamp->getTimestamp(),
             ]);
 
@@ -48,7 +48,7 @@ class ObjectStore implements ObjectStoreInterface, LoggerAwareInterface
         } catch (ObjectNotFoundException $e) {
             $this->logger->warning('Object not found', [
                 'key' => $key,
-                'adapter' => get_class($this->adapter),
+                'adapter' => \get_class($this->adapter),
                 'timestamp' => $timestamp->getTimestamp(),
             ]);
 
