@@ -23,7 +23,7 @@ services:
         tags: [{ name: 'object_storage.adapter', key: 'doctrine' }]
 
     App\Infrastructure\ObjectStorage\AdapterProvider:
-        - !tagged { tag: 'object_storage.adapter', index_by: key }
+        - !tagged_locator { tag: 'object_storage.adapter', index_by: key }
 
     App\Infrastructure\ObjectStorage\ObjectStorageAdapter:
         factory: '@App\Infrastructure\ObjectStorage\AdapterProvider'

@@ -4,27 +4,19 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\ObjectStorage;
 
+use Psr\Container\ContainerInterface;
+
 class AdapterProvider
 {
-    /** @var ObjectStorageAdapter[] */
-    private iterable $adapters;
+    private ContainerInterface $adaptersContainer;
 
-    /**
-     * @param ObjectStorageAdapter[] $adapters
-     */
-    public function __construct(iterable $adapters)
+    public function __construct(ContainerInterface $adaptersContainer)
     {
-        $this->adapters = $adapters;
+        $this->adaptersContainer = $adaptersContainer;
     }
 
     public function __invoke(string $name): ObjectStorageAdapter
     {
-        $adapters = iterator_to_array($this->adapters);
-
-        if (!\array_key_exists($name, $adapters)) {
-            throw new \UnexpectedValueException(sprintf('Invalid adapter name "%s" provided. Available options are: %s', $name, implode(', ', array_keys($adapters))));
-        }
-
-        return $adapters[$name];
+       return $this->adaptersContainer->get($name);
     }
 }
