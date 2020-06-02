@@ -7,7 +7,7 @@ namespace App\Interfaces\Http;
 use App\Domain\Model\ObjectEntry;
 use App\Domain\Service\ObjectStoreInterface;
 use DateTime;
-use Swagger\Annotations as SWG;
+use OpenApi\Annotations as OA;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,7 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/object")
- * @SWG\Tag(name="Object Store")
+ * @OA\Tag(name="Object Store")
  */
 class ApiController extends AbstractController
 {
@@ -30,22 +30,17 @@ class ApiController extends AbstractController
     }
 
     /**
-     * @SWG\Parameter(
-     *     name="body",
-     *     in="body",
+     * @OA\RequestBody(
      *     description="Key-value pairs to store",
-     *     @SWG\Schema(
-     *         type="object",
-     *         additionalProperties=true,
-     *         example={"key": "value"}
-     *     )
+     *     required=true,
+     *     @OA\JsonContent(example={"key": "value"}, @OA\Schema(type="object", additionalProperties=true))
      * )
-     * @SWG\Response(
+     * @OA\Response(
      *     response="201",
      *     description="On success",
-     *     headers={@SWG\Header(header="X-Timestamp", type="number", description="Current server timestamp")}
+     *     headers={@OA\Header(header="X-Timestamp", @OA\Schema(type="integer"), description="Current server timestamp")}
      * )
-     * @SWG\Response(response="400", description="When provided object is not valid")
+     * @OA\Response(response="400", description="When provided object is not valid")
      *
      * @Route("", name="api_upsert_object", methods={"POST"}, defaults={"_format": "json"})
      */
@@ -70,16 +65,17 @@ class ApiController extends AbstractController
     }
 
     /**
-     * @SWG\Parameter(name="key", in="path", description="Key to display value for", type="string")
-     * @SWG\Parameter(name="timestamp", in="query", description="Timestamp of the value snapshot", type="integer", required=false)
-     * @SWG\Response(
+     * @OA\Parameter(name="key", in="path", description="Key to display value for", @OA\Schema(type="string"))
+     * @OA\Parameter(name="timestamp", in="query", description="Timestamp of the value snapshot", @OA\Schema(type="integer"), required=false)
+     * @OA\Response(
      *     response="200",
      *     description="Value for the key at given time (or now)",
-     *     @SWG\Schema(type="object", example="test-value"),
-     *     headers={@SWG\Header(header="X-Timestamp", type="number", description="Current server timestamp")}
+     *     @OA\Schema(type="object", example="test-value"),
+     *     headers={@OA\Header(header="X-Timestamp", schema=@OA\Schema(type="integer"), description="Current server timestamp")}
      * )
-     * @SWG\Response(response="400", description="When provided timestamp is invalid")
-     * @SWG\Response(response="404", description="When key is not found (for provided time)")
+     * @OA\Response(response="400", description="When provided timestamp is invalid")
+     * @OA\Response(response="404", description="When key is not found (for provided time)")
+     *
      * @Route("/{key}", name="api_get_value", methods={"GET"}, defaults={"_format": "json"})
      */
     public function getValue(string $key, Request $request)
