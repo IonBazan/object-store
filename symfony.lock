@@ -2,6 +2,9 @@
     "brick/math": {
         "version": "0.8.15"
     },
+    "composer/package-versions-deprecated": {
+        "version": "1.10.99"
+    },
     "composer/semver": {
         "version": "1.5.1"
     },
@@ -48,16 +51,16 @@
         ]
     },
     "doctrine/doctrine-migrations-bundle": {
-        "version": "1.2",
+        "version": "2.2",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "master",
-            "version": "1.2",
-            "ref": "c1431086fec31f17fbcfe6d6d7e92059458facc1"
+            "version": "2.2",
+            "ref": "baaa439e3e3179e69e3da84b671f0a3e4a2f56ad"
         },
         "files": [
             "config/packages/doctrine_migrations.yaml",
-            "src/Migrations/.gitignore"
+            "migrations/.gitignore"
         ]
     },
     "doctrine/event-manager": {
@@ -337,7 +340,7 @@
         "version": "v5.0.8"
     },
     "symfony/orm-pack": {
-        "version": "v1.0.8"
+        "version": "v2.0.0"
     },
     "symfony/phpunit-bridge": {
         "version": "4.3",
