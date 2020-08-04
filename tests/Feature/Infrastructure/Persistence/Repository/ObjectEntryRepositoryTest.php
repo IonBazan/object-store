@@ -7,7 +7,7 @@ namespace App\Tests\Feature\Infrastructure\Persistence\Repository;
 use App\Infrastructure\Persistence\Entity\ObjectEntry;
 use App\Infrastructure\Persistence\Repository\ObjectEntryRepository;
 use DateTime;
-use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class ObjectEntryRepositoryTest extends KernelTestCase
@@ -30,7 +30,7 @@ class ObjectEntryRepositoryTest extends KernelTestCase
         $result = $this->repository->findAll();
 
         $this->assertSame([$entry], $result);
-        $this->assertInstanceOf(Uuid::class, $entry->getId());
+        $this->assertInstanceOf(UuidInterface::class, $entry->getId());
         $this->assertSame('my-key', $entry->getKey());
     }
 
