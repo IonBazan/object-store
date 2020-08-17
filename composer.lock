@@ -60,21 +60,21 @@
         },
         {
             "name": "composer/package-versions-deprecated",
-            "version": "1.10.99",
+            "version": "1.10.99.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/package-versions-deprecated.git",
-                "reference": "dd51b4443d58b34b6d9344cf4c288e621c9a826f"
+                "reference": "68c9b502036e820c33445ff4d174327f6bb87486"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/package-versions-deprecated/zipball/dd51b4443d58b34b6d9344cf4c288e621c9a826f",
-                "reference": "dd51b4443d58b34b6d9344cf4c288e621c9a826f",
+                "url": "https://api.github.com/repos/composer/package-versions-deprecated/zipball/68c9b502036e820c33445ff4d174327f6bb87486",
+                "reference": "68c9b502036e820c33445ff4d174327f6bb87486",
                 "shasum": ""
             },
             "require": {
                 "composer-plugin-api": "^1.1.0 || ^2.0",
-                "php": "^7"
+                "php": "^7 || ^8"
             },
             "replace": {
                 "ocramius/package-versions": "1.10.99"
@@ -125,7 +125,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-15T08:39:18+00:00"
+            "time": "2020-08-13T12:55:41+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -6233,20 +6233,26 @@
         },
         {
             "name": "infection/include-interceptor",
-            "version": "0.2.3",
+            "version": "0.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/infection/include-interceptor.git",
-                "reference": "07d20c33a6c0624b8636adf25ddca7e9e19a5dc9"
+                "reference": "e3cf9317a7fd554ab60a5587f028b16418cc4264"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/infection/include-interceptor/zipball/07d20c33a6c0624b8636adf25ddca7e9e19a5dc9",
-                "reference": "07d20c33a6c0624b8636adf25ddca7e9e19a5dc9",
+                "url": "https://api.github.com/repos/infection/include-interceptor/zipball/e3cf9317a7fd554ab60a5587f028b16418cc4264",
+                "reference": "e3cf9317a7fd554ab60a5587f028b16418cc4264",
                 "shasum": ""
             },
             "require-dev": {
-                "phpunit/phpunit": "^8.5"
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "infection/infection": "^0.15.0",
+                "phan/phan": "^2.4 || ^3",
+                "php-coveralls/php-coveralls": "^2.2",
+                "phpstan/phpstan": "^0.12.8",
+                "phpunit/phpunit": "^8.5",
+                "vimeo/psalm": "^3.8"
             },
             "type": "library",
             "autoload": {
@@ -6265,20 +6271,20 @@
                 }
             ],
             "description": "Stream Wrapper: Include Interceptor. Allows to replace included (autoloaded) file with another one.",
-            "time": "2020-01-27T10:28:21+00:00"
+            "time": "2020-08-07T22:40:37+00:00"
         },
         {
             "name": "infection/infection",
-            "version": "0.16.4",
+            "version": "0.16.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/infection/infection.git",
-                "reference": "c1ef0b16b3e8d171f10ba8bfe8b6c93d482a68b4"
+                "reference": "f02709e6604c20fb56ef5743f082c009346322cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/infection/infection/zipball/c1ef0b16b3e8d171f10ba8bfe8b6c93d482a68b4",
-                "reference": "c1ef0b16b3e8d171f10ba8bfe8b6c93d482a68b4",
+                "url": "https://api.github.com/repos/infection/infection/zipball/f02709e6604c20fb56ef5743f082c009346322cc",
+                "reference": "f02709e6604c20fb56ef5743f082c009346322cc",
                 "shasum": ""
             },
             "require": {
@@ -6306,6 +6312,7 @@
                 "webmozart/path-util": "^2.3"
             },
             "conflict": {
+                "phpunit/php-code-coverage": ">9 <9.1.4",
                 "symfony/console": "=4.1.5"
             },
             "require-dev": {
@@ -6372,7 +6379,7 @@
                 "testing",
                 "unit testing"
             ],
-            "time": "2020-06-25T15:14:51+00:00"
+            "time": "2020-08-16T21:03:43+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -6442,16 +6449,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.7.0",
+            "version": "v4.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "21dce06dfbf0365c6a7cc8fdbdc995926c6a9300"
+                "reference": "8c58eb4cd4f3883f82611abeac2efbc3dbed787e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/21dce06dfbf0365c6a7cc8fdbdc995926c6a9300",
-                "reference": "21dce06dfbf0365c6a7cc8fdbdc995926c6a9300",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/8c58eb4cd4f3883f82611abeac2efbc3dbed787e",
+                "reference": "8c58eb4cd4f3883f82611abeac2efbc3dbed787e",
                 "shasum": ""
             },
             "require": {
@@ -6459,8 +6466,8 @@
                 "php": ">=7.0"
             },
             "require-dev": {
-                "ircmaxell/php-yacc": "0.0.5",
-                "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0"
+                "ircmaxell/php-yacc": "^0.0.6",
+                "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0 || ^9.0"
             },
             "bin": [
                 "bin/php-parse"
@@ -6468,7 +6475,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.7-dev"
+                    "dev-master": "4.8-dev"
                 }
             },
             "autoload": {
@@ -6490,7 +6497,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2020-07-25T13:18:53+00:00"
+            "time": "2020-08-09T10:23:20+00:00"
         },
         {
             "name": "ondram/ci-detector",
@@ -6730,16 +6737,16 @@
         },
         {
             "name": "seld/jsonlint",
-            "version": "1.8.0",
+            "version": "1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/jsonlint.git",
-                "reference": "ff2aa5420bfbc296cf6a0bc785fa5b35736de7c1"
+                "reference": "3d5eb71705adfa34bd34b993400622932b2f62fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/ff2aa5420bfbc296cf6a0bc785fa5b35736de7c1",
-                "reference": "ff2aa5420bfbc296cf6a0bc785fa5b35736de7c1",
+                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/3d5eb71705adfa34bd34b993400622932b2f62fd",
+                "reference": "3d5eb71705adfa34bd34b993400622932b2f62fd",
                 "shasum": ""
             },
             "require": {
@@ -6785,7 +6792,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-04-30T19:05:18+00:00"
+            "time": "2020-08-13T09:07:59+00:00"
         },
         {
             "name": "symfony/browser-kit",
