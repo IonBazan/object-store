@@ -28,7 +28,7 @@
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
-        "infection/infection": "^0.16.3",
+        "infection/infection": "^0.17.0",
         "symfony/profiler-pack": "^1.0",
         "symfony/test-pack": "^1.0"
     },
