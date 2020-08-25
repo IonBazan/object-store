@@ -1784,13 +1784,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nelmio/NelmioApiDocBundle.git",
-                "reference": "878c436698311a06390f099b479ab41e1e38cf99"
+                "url": "git@github.com:nelmio/NelmioApiDocBundle.git",
+                "reference": "5dce5fe1bcb9be7e6cf3a6c4bc7cf84ee22ac0e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/878c436698311a06390f099b479ab41e1e38cf99",
-                "reference": "878c436698311a06390f099b479ab41e1e38cf99",
+                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/5dce5fe1bcb9be7e6cf3a6c4bc7cf84ee22ac0e4",
+                "reference": "5dce5fe1bcb9be7e6cf3a6c4bc7cf84ee22ac0e4",
                 "shasum": ""
             },
             "require": {
@@ -1868,7 +1868,7 @@
                 "documentation",
                 "rest"
             ],
-            "time": "2020-08-12T08:50:21+00:00"
+            "time": "2020-08-21T20:39:40+00:00"
         },
         {
             "name": "ocramius/proxy-manager",
@@ -6511,16 +6511,16 @@
         },
         {
             "name": "ondram/ci-detector",
-            "version": "3.4.0",
+            "version": "3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OndraM/ci-detector.git",
-                "reference": "0babf1cb71984f652498c6327a47d0081cd1e01b"
+                "reference": "789e9fcc7a8c3ef6d54f645fef744ad35946e896"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OndraM/ci-detector/zipball/0babf1cb71984f652498c6327a47d0081cd1e01b",
-                "reference": "0babf1cb71984f652498c6327a47d0081cd1e01b",
+                "url": "https://api.github.com/repos/OndraM/ci-detector/zipball/789e9fcc7a8c3ef6d54f645fef744ad35946e896",
+                "reference": "789e9fcc7a8c3ef6d54f645fef744ad35946e896",
                 "shasum": ""
             },
             "require": {
@@ -6556,6 +6556,7 @@
             "keywords": [
                 "CircleCI",
                 "Codeship",
+                "Wercker",
                 "adapter",
                 "appveyor",
                 "aws",
@@ -6563,6 +6564,7 @@
                 "bamboo",
                 "bitbucket",
                 "buddy",
+                "ci-info",
                 "codebuild",
                 "continuous integration",
                 "continuousphp",
@@ -6574,7 +6576,7 @@
                 "teamcity",
                 "travis"
             ],
-            "time": "2020-05-11T19:24:44+00:00"
+            "time": "2020-08-25T11:58:23+00:00"
         },
         {
             "name": "php-cs-fixer/diff",
