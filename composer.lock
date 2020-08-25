@@ -1784,13 +1784,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nelmio/NelmioApiDocBundle.git",
-                "reference": "878c436698311a06390f099b479ab41e1e38cf99"
+                "url": "git@github.com:nelmio/NelmioApiDocBundle.git",
+                "reference": "5dce5fe1bcb9be7e6cf3a6c4bc7cf84ee22ac0e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/878c436698311a06390f099b479ab41e1e38cf99",
-                "reference": "878c436698311a06390f099b479ab41e1e38cf99",
+                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/5dce5fe1bcb9be7e6cf3a6c4bc7cf84ee22ac0e4",
+                "reference": "5dce5fe1bcb9be7e6cf3a6c4bc7cf84ee22ac0e4",
                 "shasum": ""
             },
             "require": {
@@ -1868,7 +1868,7 @@
                 "documentation",
                 "rest"
             ],
-            "time": "2020-08-12T08:50:21+00:00"
+            "time": "2020-08-21T20:39:40+00:00"
         },
         {
             "name": "ocramius/proxy-manager",
@@ -6740,16 +6740,16 @@
         },
         {
             "name": "seld/jsonlint",
-            "version": "1.8.1",
+            "version": "1.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/jsonlint.git",
-                "reference": "3d5eb71705adfa34bd34b993400622932b2f62fd"
+                "reference": "590cfec960b77fd55e39b7d9246659e95dd6d337"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/3d5eb71705adfa34bd34b993400622932b2f62fd",
-                "reference": "3d5eb71705adfa34bd34b993400622932b2f62fd",
+                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/590cfec960b77fd55e39b7d9246659e95dd6d337",
+                "reference": "590cfec960b77fd55e39b7d9246659e95dd6d337",
                 "shasum": ""
             },
             "require": {
@@ -6795,7 +6795,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-08-13T09:07:59+00:00"
+            "time": "2020-08-25T06:56:57+00:00"
         },
         {
             "name": "symfony/browser-kit",
