@@ -46,3 +46,5 @@ jobs:
         env:
           STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
         run: vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=50 --min-msi=50 -s -j4
+      - name: Auto-merge Dependabot PRs
+        uses: ahmadnassri/action-dependabot-auto-merge@v1
