@@ -1784,12 +1784,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/NelmioApiDocBundle.git",
-                "reference": "5b6f128bd0b14246a87ad98c0d8a8f66a902eda4"
+                "reference": "a4c4ffcf3bbcc40d10510f026c4b5a757db8c947"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/5b6f128bd0b14246a87ad98c0d8a8f66a902eda4",
-                "reference": "5b6f128bd0b14246a87ad98c0d8a8f66a902eda4",
+                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/a4c4ffcf3bbcc40d10510f026c4b5a757db8c947",
+                "reference": "a4c4ffcf3bbcc40d10510f026c4b5a757db8c947",
                 "shasum": ""
             },
             "require": {
@@ -1867,7 +1867,7 @@
                 "documentation",
                 "rest"
             ],
-            "time": "2020-08-26T20:30:16+00:00"
+            "time": "2020-09-01T14:42:55+00:00"
         },
         {
             "name": "ocramius/proxy-manager",
@@ -3684,16 +3684,16 @@
         },
         {
             "name": "symfony/flex",
-            "version": "v1.9.2",
+            "version": "v1.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/flex.git",
-                "reference": "08882d1d639c4e58a6e4cd48411ed8a622dd206e"
+                "reference": "1eab1e85f5eb66dac138d6240cc0ceffd6e3ae34"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/flex/zipball/08882d1d639c4e58a6e4cd48411ed8a622dd206e",
-                "reference": "08882d1d639c4e58a6e4cd48411ed8a622dd206e",
+                "url": "https://api.github.com/repos/symfony/flex/zipball/1eab1e85f5eb66dac138d6240cc0ceffd6e3ae34",
+                "reference": "1eab1e85f5eb66dac138d6240cc0ceffd6e3ae34",
                 "shasum": ""
             },
             "require": {
@@ -3743,7 +3743,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-08-25T08:51:56+00:00"
+            "time": "2020-08-31T14:36:07+00:00"
         },
         {
             "name": "symfony/framework-bundle",
