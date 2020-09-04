@@ -1,4 +1,8 @@
 doctrine_migrations:
+    check_database_platform: false
+    storage:
+        table_storage:
+            table_name: 'migration_versions'
     migrations_paths:
         # namespace is arbitrary but should be different from App\Migrations
         # as migrations classes should NOT be autoloaded
