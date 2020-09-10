@@ -1785,12 +1785,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/NelmioApiDocBundle.git",
-                "reference": "a4c4ffcf3bbcc40d10510f026c4b5a757db8c947"
+                "reference": "edd6857b51a934958f5abcd05e6c675e3a8c837a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/a4c4ffcf3bbcc40d10510f026c4b5a757db8c947",
-                "reference": "a4c4ffcf3bbcc40d10510f026c4b5a757db8c947",
+                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/edd6857b51a934958f5abcd05e6c675e3a8c837a",
+                "reference": "edd6857b51a934958f5abcd05e6c675e3a8c837a",
                 "shasum": ""
             },
             "require": {
@@ -1868,7 +1868,7 @@
                 "documentation",
                 "rest"
             ],
-            "time": "2020-09-01T14:42:55+00:00"
+            "time": "2020-09-09T06:55:41+00:00"
         },
         {
             "name": "ocramius/proxy-manager",
@@ -2291,16 +2291,16 @@
         },
         {
             "name": "ramsey/collection",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/collection.git",
-                "reference": "044184884e3c803e4cbb6451386cb71562939b18"
+                "reference": "24d93aefb2cd786b7edd9f45b554aea20b28b9b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/collection/zipball/044184884e3c803e4cbb6451386cb71562939b18",
-                "reference": "044184884e3c803e4cbb6451386cb71562939b18",
+                "url": "https://api.github.com/repos/ramsey/collection/zipball/24d93aefb2cd786b7edd9f45b554aea20b28b9b1",
+                "reference": "24d93aefb2cd786b7edd9f45b554aea20b28b9b1",
                 "shasum": ""
             },
             "require": {
@@ -2356,7 +2356,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-08-11T00:57:21+00:00"
+            "time": "2020-09-10T20:58:17+00:00"
         },
         {
             "name": "ramsey/uuid",
