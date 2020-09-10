@@ -1785,12 +1785,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/NelmioApiDocBundle.git",
-                "reference": "a4c4ffcf3bbcc40d10510f026c4b5a757db8c947"
+                "reference": "edd6857b51a934958f5abcd05e6c675e3a8c837a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/a4c4ffcf3bbcc40d10510f026c4b5a757db8c947",
-                "reference": "a4c4ffcf3bbcc40d10510f026c4b5a757db8c947",
+                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/edd6857b51a934958f5abcd05e6c675e3a8c837a",
+                "reference": "edd6857b51a934958f5abcd05e6c675e3a8c837a",
                 "shasum": ""
             },
             "require": {
@@ -1868,7 +1868,7 @@
                 "documentation",
                 "rest"
             ],
-            "time": "2020-09-01T14:42:55+00:00"
+            "time": "2020-09-09T06:55:41+00:00"
         },
         {
             "name": "ocramius/proxy-manager",
@@ -5941,16 +5941,16 @@
     "packages-dev": [
         {
             "name": "composer/semver",
-            "version": "1.5.1",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/semver.git",
-                "reference": "c6bea70230ef4dd483e6bbcab6005f682ed3a8de"
+                "reference": "114f819054a2ea7db03287f5efb757e2af6e4079"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/semver/zipball/c6bea70230ef4dd483e6bbcab6005f682ed3a8de",
-                "reference": "c6bea70230ef4dd483e6bbcab6005f682ed3a8de",
+                "url": "https://api.github.com/repos/composer/semver/zipball/114f819054a2ea7db03287f5efb757e2af6e4079",
+                "reference": "114f819054a2ea7db03287f5efb757e2af6e4079",
                 "shasum": ""
             },
             "require": {
@@ -5998,7 +5998,21 @@
                 "validation",
                 "versioning"
             ],
-            "time": "2020-01-13T12:06:48+00:00"
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-09-09T09:34:06+00:00"
         },
         {
             "name": "composer/xdebug-handler",
