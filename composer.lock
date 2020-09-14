@@ -1632,16 +1632,16 @@
         },
         {
             "name": "laminas/laminas-zendframework-bridge",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-zendframework-bridge.git",
-                "reference": "4939c81f63a8a4968c108c440275c94955753b19"
+                "reference": "6ede70583e101030bcace4dcddd648f760ddf642"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-zendframework-bridge/zipball/4939c81f63a8a4968c108c440275c94955753b19",
-                "reference": "4939c81f63a8a4968c108c440275c94955753b19",
+                "url": "https://api.github.com/repos/laminas/laminas-zendframework-bridge/zipball/6ede70583e101030bcace4dcddd648f760ddf642",
+                "reference": "6ede70583e101030bcace4dcddd648f760ddf642",
                 "shasum": ""
             },
             "require": {
@@ -1653,10 +1653,6 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev",
-                    "dev-develop": "1.1.x-dev"
-                },
                 "laminas": {
                     "module": "Laminas\\ZendFrameworkBridge"
                 }
@@ -1686,7 +1682,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2020-08-18T16:34:51+00:00"
+            "time": "2020-09-14T14:23:00+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1785,12 +1781,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/NelmioApiDocBundle.git",
-                "reference": "a4c4ffcf3bbcc40d10510f026c4b5a757db8c947"
+                "reference": "edd6857b51a934958f5abcd05e6c675e3a8c837a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/a4c4ffcf3bbcc40d10510f026c4b5a757db8c947",
-                "reference": "a4c4ffcf3bbcc40d10510f026c4b5a757db8c947",
+                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/edd6857b51a934958f5abcd05e6c675e3a8c837a",
+                "reference": "edd6857b51a934958f5abcd05e6c675e3a8c837a",
                 "shasum": ""
             },
             "require": {
@@ -1868,7 +1864,7 @@
                 "documentation",
                 "rest"
             ],
-            "time": "2020-09-01T14:42:55+00:00"
+            "time": "2020-09-09T06:55:41+00:00"
         },
         {
             "name": "ocramius/proxy-manager",
